@@ -4,13 +4,12 @@ import {createInterface} from 'node:readline/promises';
 import {getRoot} from '../utils/utils.js';
 import {handleLine} from './handleLine.js';
 
-const rootDir = getRoot();
-let curDir = rootDir;
+let curDir = 'C:/Users/pashk/Documents/Web_Development/Edu/RSschool/nodeJs_2024/file_manager';
+// GetRoot();
 
-const rl = createInterface({input: stdin,
-	output: stdout});
+const rl = createInterface({input: stdin, output: stdout});
 
-function main() {
+async function main() {
 	const userName = argv.slice(2).at(0)?.split('=').at(1) || 'Anon';
 
 	console.log(`Welcome to the File Manager, ${userName}!`);
@@ -18,18 +17,15 @@ function main() {
 
 	process.on('exit', () => console.log(`Thank you for using File Manager, ${userName}, goodbye!`));
 
-	rl.on('line', async d => {
-		curDir = await handleLine(d, curDir);
+	for await (const line of rl) {
+		if (line === '.exit') {
+			process.exit(0);
+		}
+
+		curDir = await handleLine(line, curDir);
 		console.log(` You are currently in ${curDir}`);
-	});
+	}
 }
 
-main();
-
-// Await main();
-
-// Process.on('exit', () => console.log('Thank you for using File Manager, , goodbye!'));
-
-// 	Console.log(`Thank you for using File Manager, ${userName}, goodbye!`);
-// }
+await main();
 

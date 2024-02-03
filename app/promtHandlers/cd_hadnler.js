@@ -1,24 +1,14 @@
-import {access} from 'node:fs/promises';
-import {getRoot} from '../../utils/utils.js';
-import {isAbsolute, join, normalize} from 'node:path';
-
-export async function cd_hadnler(line, curDir) {
-	let toPATH = normalize(line.split(' ').at(1));
-
-	if (!isAbsolute(toPATH)) {
-		toPATH = join(curDir, toPATH);
-	}
-
-	if (!toPATH.includes(getRoot())) {
-		console.log('Invalid input');
-		return curDir;
-	}
+import {opendir} from 'node:fs/promises';
+import {getPathes, myError} from '../../utils/utils.js';
+export default async function cd_hadnler(params, curDir) {
+	const {path_to_source} = getPathes(params, curDir);
 
 	try {
-		await access(toPATH);
-		return toPATH;
+		const dir = await opendir(path_to_source);
+		await dir.close();
+		return path_to_source;
 	} catch {
-		console.log('Invalid input');
+		myError();
 		return curDir;
 	}
 }
