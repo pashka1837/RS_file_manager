@@ -1,16 +1,14 @@
 
 import {argv, stdin, stdout} from 'node:process';
+import {homedir} from 'node:os';
 import {createInterface} from 'node:readline/promises';
-import {getRoot} from './utils/utils.js';
 import {line_handler} from './line_handler.js';
-
-let curDir = 'C:/Users/pashk/Documents/Web_Development/Edu/RSschool/nodeJs_2024/file_manager';
-// GetRoot();
 
 const rl = createInterface({input: stdin, output: stdout});
 
 async function main() {
 	const userName = argv.slice(2).at(0)?.split('=').at(1) || 'Anon';
+	let curDir = homedir();
 
 	console.log(`Welcome to the File Manager, ${userName}!`);
 	console.log(` You are currently in ${curDir}`);

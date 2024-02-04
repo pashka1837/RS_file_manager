@@ -9,6 +9,7 @@
         "sourceType": "module"
     },
     "rules": {
-        "camelcase": [0]
+        "camelcase": [0],
+        "no-return-await":[0]
     }
 }

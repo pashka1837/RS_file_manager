@@ -1,0 +1,5 @@
+Hello from Almaty
+Read me
+Zip me
+Move me
+Delete me :(    

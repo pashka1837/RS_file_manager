@@ -1,0 +1,2 @@
+I`m file with space in a name,  try to deal with me..
+(PS: use double quotes - folder/"file space.txt")

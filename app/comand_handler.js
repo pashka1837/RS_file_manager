@@ -5,6 +5,7 @@ import {
 	mv_handler, rm_handler} from './fs_promt_handlers/index.js';
 import hash_promt_handler from './hash_promt_handler/hash_promt_handler.js';
 import os_promt_handler from './os_promt_handler/os_promt_handler.js';
+import {compress_handler, decompress_handler} from './zip_promt_handlers/index.js';
 
 export default async function comand_handler(curDir, command, params) {
 	let returnDir = curDir;
@@ -43,7 +44,14 @@ export default async function comand_handler(curDir, command, params) {
 			break;
 		/* HASH command */
 		case ('hash'):
-			hash_promt_handler(params, curDir);
+			await hash_promt_handler(params, curDir);
+			break;
+			/* ZIP commands */
+		case ('compress'):
+			await compress_handler(params, curDir);
+			break;
+		case ('decompress'):
+			await decompress_handler(params, curDir);
 			break;
 		default:
 			console.log('Invalid input');
