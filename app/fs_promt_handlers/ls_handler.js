@@ -1,5 +1,5 @@
 import {opendir} from 'node:fs/promises';
-import {myError} from '../../utils/utils.js';
+import {myError} from '../utils/utils.js';
 
 function mySort(a, b) {
 	return a.Name.localeCompare(b.Name);

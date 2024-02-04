@@ -1,8 +1,8 @@
 
 import {argv, stdin, stdout} from 'node:process';
 import {createInterface} from 'node:readline/promises';
-import {getRoot} from '../utils/utils.js';
-import {handleLine} from './handleLine.js';
+import {getRoot} from './utils/utils.js';
+import {line_handler} from './line_handler.js';
 
 let curDir = 'C:/Users/pashk/Documents/Web_Development/Edu/RSschool/nodeJs_2024/file_manager';
 // GetRoot();
@@ -22,8 +22,13 @@ async function main() {
 			process.exit(0);
 		}
 
-		curDir = await handleLine(line, curDir);
-		console.log(` You are currently in ${curDir}`);
+		try {
+			curDir = await line_handler(line.trim(), curDir);
+		} catch {
+			console.log('Something went wrong');
+		} finally {
+			console.log(` You are currently in ${curDir}`);
+		}
 	}
 }
 

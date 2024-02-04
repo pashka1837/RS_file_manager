@@ -74,5 +74,5 @@ export function isMyAbsolute(somePath) {
 /* PATH */
 
 export function myError(error = '') {
-	console.log(`Invalid input ${error}`);
+	console.log(`Invalid input${error}`);
 }

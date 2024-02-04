@@ -1,5 +1,5 @@
 import {opendir} from 'node:fs/promises';
-import {getPathes, myError} from '../../utils/utils.js';
+import {getPathes, myError} from '../utils/utils.js';
 export default async function cd_hadnler(params, curDir) {
 	const {path_to_source} = getPathes(params, curDir);
 

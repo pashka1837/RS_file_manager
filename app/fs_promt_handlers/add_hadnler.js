@@ -1,5 +1,5 @@
 import {appendFile, access} from 'node:fs/promises';
-import {getPathes, myError} from '../../utils/utils.js';
+import {getPathes, myError} from '../utils/utils.js';
 
 export default async function add_hadnler(params, curDir) {
 	const {path_to_source: filePATH} = getPathes(params, curDir);
