@@ -18,6 +18,14 @@ export function getParams(line) {
 	return line.split(' ').splice(1).join(' ');
 }
 
+export function isMyAbsolute(somePath) {
+	if (somePath.includes(getRoot())) {
+		return true;
+	}
+
+	return false;
+}
+
 /* PATH */
 
 export function getPathes(params, curDir) {
@@ -47,14 +55,6 @@ export function getPathes(params, curDir) {
 		path_to_source: newParams[0],
 		path_to_destination: newParams[1] || null,
 	};
-}
-
-export function isMyAbsolute(somePath) {
-	if (somePath.includes(getRoot())) {
-		return true;
-	}
-
-	return false;
 }
 
 /* PATH */
