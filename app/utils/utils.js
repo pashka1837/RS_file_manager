@@ -11,7 +11,7 @@ export function getRoot() {
 }
 
 export function getCommand(line) {
-	return line.split(' ').at(0);
+	return (line.split(' ').at(0)).toLowerCase();
 }
 
 export function getParams(line) {

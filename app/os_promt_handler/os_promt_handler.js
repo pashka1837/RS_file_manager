@@ -4,8 +4,8 @@ export default function os_promt_handler(params) {
 		return cpus().map(c => ({model: c.model, speed: c.speed}));
 	}
 
-	switch (params) {
-		case ('--EOL'):
+	switch ((params).toLowerCase()) {
+		case ('--eol'):
 			console.log(EOL);
 			break;
 		case ('--cpus'):
