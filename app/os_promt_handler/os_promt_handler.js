@@ -1,4 +1,4 @@
-import {homedir, cpus, userInfo, machine} from 'node:os';
+import {homedir, cpus, userInfo, machine, EOL} from 'node:os';
 export default function os_promt_handler(params) {
 	function getCPUS() {
 		return cpus().map(c => ({model: c.model, speed: c.speed}));
@@ -6,7 +6,7 @@ export default function os_promt_handler(params) {
 
 	switch (params) {
 		case ('--EOL'):
-			console.log('\n');
+			console.log(EOL);
 			break;
 		case ('--cpus'):
 			console.table(getCPUS());
