@@ -57,20 +57,6 @@ export function isMyAbsolute(somePath) {
 	return false;
 }
 
-// Export function path_with_spaces(somePath) {
-// 	const toPATH = somePath.length > 1 ? somePath.join(' ').replace(/"/g, '/') : (somePath.at(0));
-// 	return normalize(toPATH.toLowerCase());
-// }
-
-// export function get_whole_path(somePath, curDir) {
-// 	let whole_path = path_with_spaces(somePath);
-// 	if (!isMyAbsolute(whole_path)) {
-// 		whole_path = join(curDir, whole_path).toLowerCase();
-// 	}
-
-// 	return whole_path;
-// }
-
 /* PATH */
 
 export function myError(error = '') {

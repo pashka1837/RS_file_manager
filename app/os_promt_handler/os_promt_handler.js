@@ -1,4 +1,4 @@
-import {homedir, cpus, hostname, machine} from 'node:os';
+import {homedir, cpus, userInfo, machine} from 'node:os';
 export default function os_promt_handler(params) {
 	function getCPUS() {
 		return cpus().map(c => ({model: c.model, speed: c.speed}));
@@ -15,7 +15,7 @@ export default function os_promt_handler(params) {
 			console.log(homedir());
 			break;
 		case ('--username'):
-			console.log(hostname());
+			console.log(userInfo().username);
 			break;
 		case ('--architecture'):
 			console.log(machine());
