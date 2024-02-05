@@ -11,7 +11,7 @@ async function main() {
 	let curDir = homedir();
 
 	console.log(`Welcome to the File Manager, ${userName}!`);
-	console.log(` You are currently in ${curDir}`);
+	console.log(`You are currently in ${curDir}`);
 
 	process.on('exit', () => console.log(`Thank you for using File Manager, ${userName}, goodbye!`));
 
@@ -25,7 +25,7 @@ async function main() {
 		} catch {
 			console.log('Something went wrong');
 		} finally {
-			console.log(` You are currently in ${curDir}`);
+			console.log(`You are currently in ${curDir}`);
 		}
 	}
 }
